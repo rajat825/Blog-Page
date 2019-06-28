@@ -107,21 +107,28 @@ class App extends React.Component{
           icon:`https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Tick_Mark_Dark-512.png`,
           link:`http://google.com`,
           text:`Click here!`
-        }]
+        }],
+        socialIcons:{
+          facebook:"https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/facebook_circle-512.png",
+          twitter:"https://cdn3.iconfinder.com/data/icons/inficons-round-brand-set-2/512/twitter-512.png",
+          github:"https://image.flaticon.com/icons/svg/25/25231.svg"
+        }
     };
   }
   render(){ 
     return(
       <div>
         <div id="header">
-          <div class="head">
-            <img id="icon" src="https://cdn0.iconfinder.com/data/icons/symbols-symbols-add-on-vol-1/48/v-49-512.png"/>
+          <div class="head" id="icon-div">
+            <a href="/"><img id="icon" src="https://cdn0.iconfinder.com/data/icons/symbols-symbols-add-on-vol-1/48/v-49-512.png"/></a>
           </div>
-          <div class="head">
+          <div class="head" id="text-div">
             <p id="head-text">Blog Words</p>
           </div>
-          <div class="head">
-            
+          <div class="head" id="link-div">
+            <a class ="head-link" href="http://google.com">Search</a>
+            <a class ="head-link" href="http://google.com">Login</a>
+            <a class ="head-link" href="http://google.com">SignUp</a>
           </div>
         </div>
 
@@ -144,8 +151,12 @@ class App extends React.Component{
         </div>
 
         <div id="footer">
-          <div id="social"></div>
-          <div id="copyright">Copyright &copy; 2019 Ather Energy - Banglore, India </div>
+          <div id="social" class="foot">
+            <a href="https://www. facebook.com"><img src={this.state.socialIcons.facebook}/></a>
+            <a href="https://www.google.com"><img src={this.state.socialIcons.twitter}/></a>
+            <a href="https://www.github.com"><img src={this.state.socialIcons.github}/></a>
+          </div>
+          <div id="copyright" class="foot">Copyright &copy; 2019 Ather Energy - Banglore, India </div>
         </div>
       </div>
     );
