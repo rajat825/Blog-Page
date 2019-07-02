@@ -6,6 +6,7 @@ class App extends React.Component{
   constructor(){
     super();
     this.state={
+      isHamOpen:false,
       title:"Badshds djsk",
       image: "https://ih1.redbubble.net/image.520790511.0240/flat,550x550,075,f.u2.jpg",
       content:[`Bacon ipsum dolor amet burgdoggen salami brisket swine kevin
@@ -115,24 +116,54 @@ class App extends React.Component{
         }
     };
   }
+
+  hamClicked = (event)=>{
+    let ham = this.state.isHamOpen;
+    if(ham==true){
+      event.currentTarget.style.display = "none";
+    }
+    else{
+      event.currentTarget.style.display = "block";
+    }
+    this.setState({isHamOpen:!ham});
+  }
+
   render(){ 
     return(
       <div>
         <div id="header">
+
           <div class="head" id="icon-div">
             <a href="/"><img id="icon" src="https://cdn0.iconfinder.com/data/icons/symbols-symbols-add-on-vol-1/48/v-49-512.png"/></a>
           </div>
+
           <div class="head" id="text-div">
             <p id="head-text">Blog Words</p>
           </div>
+
+          <div class="head" id="hamburger-div">
+            <div class="hamburger-icon"></div>
+            <div class="hamburger-icon"></div>
+            <div class="hamburger-icon"></div>
+            <div id="hamburger-menu" onClick={this.hamClicked}>
+              <div id="hamburger-container">
+                <div class="hamburger-menu-items"><a class ="head-link" href="http://google.com">Search</a></div>
+                <div class="hamburger-menu-items"><a class ="head-link" href="http://google.com">Login</a></div>
+                <div class="hamburger-menu-items"><a class ="head-link" href="http://google.com">SignUp</a></div>
+              </div>
+            </div>
+          </div>
+
           <div class="head" id="link-div">
             <a class ="head-link" href="http://google.com">Search</a>
             <a class ="head-link" href="http://google.com">Login</a>
             <a class ="head-link" href="http://google.com">SignUp</a>
           </div>
+
         </div>
 
         <div id="body">
+
           <div id="blog" class="body-div">
             <h2>{this.state.title}</h2>  
             <div id="blogImg"><img id="bImg" src={this.state.image} alt="Not found"/></div>
@@ -140,8 +171,9 @@ class App extends React.Component{
               return<p>{data}</p>;
             })}</p>
           </div>
+
           <div id="sidebar" class="body-div">
-            {this.state.sideBarData.map(data=>{
+            {this.state.sideBarData.map(data=>{ 
               return (<div class="sideRow">
                         <img class="sidebarIcon side-row-data" src={data.icon} alt="Not Found"/>
                         <a class="sidebarText side-row-data" href={data.link}>{data.text}</a>
@@ -151,12 +183,15 @@ class App extends React.Component{
         </div>
 
         <div id="footer">
+
           <div id="social" class="foot">
-            <a href="https://www. facebook.com"><img src={this.state.socialIcons.facebook}/></a>
-            <a href="https://www.google.com"><img src={this.state.socialIcons.twitter}/></a>
+            <a href="https://www.facebook.com"><img src={this.state.socialIcons.facebook}/></a>
+            <a href="https://www.twitter.com"><img src={this.state.socialIcons.twitter}/></a>
             <a href="https://www.github.com"><img src={this.state.socialIcons.github}/></a>
           </div>
+
           <div id="copyright" class="foot">Copyright &copy; 2019 Ather Energy - Banglore, India </div>
+        
         </div>
       </div>
     );
