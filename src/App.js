@@ -118,12 +118,16 @@ class App extends React.Component{
   }
 
   hamClicked = (event)=>{
+    console.log("Ham Clicked");
+    let hamMenu = document.getElementById("hamburger-menu");
     let ham = this.state.isHamOpen;
     if(ham==true){
-      event.currentTarget.style.display = "none";
+      hamMenu.style.display = "none";
+      console.log("Dropdown closed");
     }
     else{
-      event.currentTarget.style.display = "block";
+      hamMenu.style.display = "block";
+      console.log("Dropdown is open");
     }
     this.setState({isHamOpen:!ham});
   }
@@ -141,11 +145,11 @@ class App extends React.Component{
             <p id="head-text">Blog Words</p>
           </div>
 
-          <div class="head" id="hamburger-div">
+          <div class="head" id="hamburger-div" onClick={this.hamClicked}>
             <div class="hamburger-icon"></div>
             <div class="hamburger-icon"></div>
             <div class="hamburger-icon"></div>
-            <div id="hamburger-menu" onClick={this.hamClicked}>
+            <div id="hamburger-menu">
               <div id="hamburger-container">
                 <div class="hamburger-menu-items"><a class ="head-link" href="http://google.com">Search</a></div>
                 <div class="hamburger-menu-items"><a class ="head-link" href="http://google.com">Login</a></div>

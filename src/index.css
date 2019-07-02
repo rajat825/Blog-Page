@@ -116,7 +116,7 @@ div img{
 
 .body-div{
   display: inline-block;
-  position: relative;
+  /* position: relative; */
 }
 
 .sideRow{
@@ -190,10 +190,10 @@ div img{
     /* display; */
   }
 
-  #hamburger-container{
+  /* #hamburger-container{
     position: relative;
     z-index: 1;
-  }
+  } */
 
   #blog {
     background-color: #F1FFFA;
@@ -211,14 +211,18 @@ div img{
   }
 
   #sidebar{
-    margin-left: 50px;
+    margin-left: calc((100% - 400px - 40px - 2px)/2);
+    margin-right: calc((100% - 400px - 40px - 2px)/2); 
     margin-bottom: 20px;
+    width: 400px;
   }
 }
 
 @media screen and (max-width: 600px) {
   #sidebar{
-    width:50%;
+    width:60%;
+    margin-left:calc((40% - 42px)/2);
+    margin-right: calc((40% - 42px)/2);
   }
   #text-div{
     display: none;
