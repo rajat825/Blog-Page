@@ -39,7 +39,7 @@ class SideBar extends React.Component{
                   link:`http://google.com`,
                   text:`Click here!`
                 }]
-                }
+            }
     }
     
     render(){
